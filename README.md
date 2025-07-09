@@ -1,11 +1,8 @@
-# Embedded-Linux-Test-Automation-Framework--TestGridX
-Engineered a Python-based test framework using Labgrid, QEMU &amp; Pytest to automate validation of embedded Linux (OpenWrt). Simulated boot and SSH tests via YAML-driven test plans, reducing manual effort by 55% and identifying boot issues 2× faster in CI.
-
-# 🚀 TestGridX – Embedded Linux Test Automation Framework
+# 🚀  Embedded Linux Test Automation Framework - TestGridX 
 
 **TestGridX** is a lightweight test automation framework using [Pytest](https://pytest.org/) and [Labgrid](https://labgrid.readthedocs.io) to validate embedded Linux firmware (OpenWrt) inside a virtual environment powered by **QEMU**.
 
-It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environments, helping reduce manual QA effort by over 50%.
+It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environments, helping reduce manual QA effort by over 50% and identifying boot issues 2× faster in CI.
 
 ---
 
@@ -33,7 +30,6 @@ It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environme
 
 ## 🧱 Architecture
 
-![](./img/labgrid-qemu-sample.svg)
 
 - `make test-docker` triggers a Docker Compose setup  
 - QEMU boots the firmware  
@@ -57,3 +53,5 @@ It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environme
 git clone https://github.com/honeytreelabs/labgrid-qemu-sample.git
 cd labgrid-qemu-sample
 make test-docker
+
+
