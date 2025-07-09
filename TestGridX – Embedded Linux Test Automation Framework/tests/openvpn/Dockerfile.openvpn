@@ -1,0 +1,17 @@
+FROM python:3.12-bookworm
+
+LABEL org.opencontainers.image.authors="Rainer Poisel <rainer@honeytreelabs.com>"
+
+RUN apt-get update \
+    && apt-get install -yy \
+        iproute2 \
+        iputils-ping \
+        openvpn
+
+COPY ./ca_cert.pem /ca_cert.pem
+COPY ./server_cert.pem /server_cert.pem
+COPY ./server_key.pem /server_key.pem
+
+WORKDIR /
+
+CMD ["/bin/bash"]

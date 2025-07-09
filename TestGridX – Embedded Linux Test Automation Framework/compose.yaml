@@ -1,0 +1,44 @@
+services:
+  debian:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+    - shared_network
+    environment:
+      CI_PIPELINE_ID: ${CI_PIPELINE_ID:-xx}
+    init: true
+    depends_on:
+      artifacts:
+        condition: service_healthy
+  artifacts:
+    build:
+      context: artifacts
+      dockerfile: Dockerfile.artifacts
+    volumes:
+    - "artifacts:/artifacts"
+    restart: always
+    environment:
+      ARTIFACTS_FILE: /artifacts.yaml
+      ARTIFACTS_DIR: /artifacts
+      LISTEN_ADDR: 0.0.0.0
+      LISTEN_PORT: 8000
+    networks:
+    # also make availale to sub compose environments
+    - shared_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:$${LISTEN_PORT}"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+      start_period: 2s
+      start_interval: 500ms
+
+networks:
+  shared_network:
+    name: shared_network-${CI_PIPELINE_ID:-xx}
+
+volumes:
+  artifacts: {}
