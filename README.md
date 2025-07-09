@@ -30,6 +30,7 @@ It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environme
 
 ## 🧱 Architecture
 
+![arc](https://github.com/user-attachments/assets/776784f5-a71a-43bc-b67e-b1a86f69ddd3)
 
 - `make test-docker` triggers a Docker Compose setup  
 - QEMU boots the firmware  
@@ -48,10 +49,15 @@ It simulates realistic boot, SSH, and VPN tunnel scenarios in CI-ready environme
 ---
 
 ## 🚀 Quick Start
-
+![ezgif-2115b2873a80c7](https://github.com/user-attachments/assets/1551335f-5034-4ef0-8394-1947feb88f10)
 ```bash
 git clone https://github.com/honeytreelabs/labgrid-qemu-sample.git
 cd labgrid-qemu-sample
 make test-docker
+
+
+
+
+
 
 
